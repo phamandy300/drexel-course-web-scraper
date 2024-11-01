@@ -1,7 +1,14 @@
-# schedule-web-scraper
-Fetches Drexel University's public class information and returns .ics files for easy import to anyone's calendar of choice.  
-Example of scrapeable webpage: https://termmasterschedule.drexel.edu/webtms_du/collegesSubjects/202345?collCode=
+# drexel-course-web-scraper
+Fetches Drexel University's public class information and returns a CSV file.
+Example of scrapeable webpage: https://termmasterschedule.drexel.edu/webtms_du/collegesSubjects/202415?collCode=
 
-The last scrape was made on March 27, 2023 for Spring Term and the files created from that are available here: https://drive.google.com/drive/folders/1csOfYbTootzJR39_Eh-OaNzF7GiFzTeo
+The program is just one python file that goes to as specified term and gets all schedules for every class that is synchronous (i.e. the time listed on the term master schedule is not "TBD")
 
-The program is just one python file that goes to as specified term and gets all schedules for every class that is synchronous (i.e. the time listed on the term master schedule is not "TBD") It takes some time to run but throws all the .ics files into one folder. Then, anyone can easily manually find their classes to import it to their calendar, as fast as two taps on mobile.
+To get past the authentication, you need to be a Drexel student with a Drexel account and have access to the page linked above. 
+Create a .env file in the same directory as main.py with these variables:
+DREXEL_USERNAME=YOUREMAIL
+DREXEL_PASSWORD=YOURPASSWORD
+
+Fill it in with your credentials and when running wait for it to enter your password then press enter or the sign in button.
+It will then wait, for up to 5 minutes, for you to authenticate through whatever MFA method you have set up.
+Then just let it run until completion.
